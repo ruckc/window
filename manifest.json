@@ -1,0 +1,6 @@
+{
+  "name": "window",
+  "short_name": "window",
+  "start_url": "/",
+  "display": "standalone"
+}

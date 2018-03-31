@@ -1,0 +1,61 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/paper-styles/color.html">
+<link rel="import" href="../../bower_components/iron-image/iron-image.html">
+<link rel="import" href="../../bower_components/skeleton-carousel/skeleton-carousel.html">
+
+<dom-module id="window-app">
+  <template>
+    <style>
+      :host {
+        display: block;
+        color: var(--paper-grey-300);
+        font-family: 'Roboto', 'Noto', sans-serif;
+        width: 100%;
+        background: black;
+        background-size: cover;
+        box-sizing: border-box;
+        height: 100vh;
+      }
+
+      skeleton-carousel {
+        height: 100vh;
+      }
+    </style>
+    <skeleton-carousel dots nav loop auto>
+      <template is="dom-repeat" items="[[images]]">
+        <iron-image
+          placeholder="[[item.src]]"
+          data-src="[[item.src]]"
+          sizing="cover"
+        ></iron-image>
+      </template>
+    </skeleton-carousel>
+  </template>
+
+  <script>
+    /**
+     * @customElement
+     * @polymer
+     */
+    class WindowApp extends Polymer.Element {
+      static get is() {
+        return 'window-app';
+      }
+
+      static get properties() {
+        return {
+          images: {
+            type: Array,
+            value: [
+              {label: 'Tidewater Marina, Havre de Grace, MD', src: 'http://wwc.instacam.com/instacamimg/HVRDG/HVRDG_l.jpg'},
+              {label: 'Northwest of Seattle, WA', src:'https://icons.wunderground.com//webcamramdisk/c/a/CasaGuemes/2/current.jpg'},
+              {label: 'Surf City, NJ', src: 'https://icons.wunderground.com//webcamramdisk/s/e/SeagullsByTheSea/1/current.jpg'}
+            ]
+          }
+        };
+      }
+    }
+
+    window.customElements.define(WindowApp.is, WindowApp);
+  </script>
+</dom-module>
