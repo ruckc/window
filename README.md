@@ -1,6 +1,6 @@
 # \<window\>
 
-
+[![Build Status](https://travis-ci.org/ruckc/window.svg?branch=master)](https://travis-ci.org/ruckc/window)
 
 ## Install the Polymer-CLI
 
