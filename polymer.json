@@ -5,18 +5,7 @@
     ]
   },
   "builds": [
-    {
-      "addServiceWorker": true,
-      "bundle": true,
-      "js": {
-        "minify": true
-      },
-      "css": {
-        "minify": true
-      },
-      "html": {
-        "minify": true
-      }
-    }
+    {"preset": "es5-bundled"},
+    {"preset": "es6-bundled"}
   ]
 }
