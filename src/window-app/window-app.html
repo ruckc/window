@@ -8,7 +8,7 @@
     <style>
       :host {
         display: block;
-        color: var(--paper-grey-300);
+        color: #FFF);
         font-family: 'Roboto', 'Noto', sans-serif;
         width: 100%;
         background: black;
@@ -20,14 +20,36 @@
       skeleton-carousel {
         height: 100vh;
       }
+
+      skeleton-carousel div.slide {
+        height: 100vh;
+      }
+
+      skeleton-carousel div.label {
+        text-align: center;
+        position: absolute;
+        top: 10px;
+        left: 0;
+        right: 0;
+        z-index: 10;
+        font-size: 20pt;
+        mix-blend-mode: overlay;
+      }
+
+      skeleton-carousel iron-image {
+        height: 100vh;
+        z-index: 0;
+        --iron-image-width: 100%;
+      }
     </style>
-    <skeleton-carousel dots nav loop auto>
+    <skeleton-carousel dots loop auto duration="6000">
       <template is="dom-repeat" items="[[images]]">
-        <iron-image
-          placeholder="[[item.src]]"
-          data-src="[[item.src]]"
-          sizing="cover"
-        ></iron-image>
+        <div class="slide">
+          <div class="label">[[item.label]]</div>
+          <iron-image
+            src="[[item.src]]"
+          ></iron-image>
+        </div>
       </template>
     </skeleton-carousel>
   </template>
@@ -47,9 +69,18 @@
           images: {
             type: Array,
             value: [
-              {label: 'Tidewater Marina, Havre de Grace, MD', src: 'http://wwc.instacam.com/instacamimg/HVRDG/HVRDG_l.jpg'},
-              {label: 'Northwest of Seattle, WA', src:'https://icons.wunderground.com//webcamramdisk/c/a/CasaGuemes/2/current.jpg'},
-              {label: 'Surf City, NJ', src: 'https://icons.wunderground.com//webcamramdisk/s/e/SeagullsByTheSea/1/current.jpg'}
+              {
+                label: 'Tidewater Marina, Havre de Grace, MD',
+                src: 'http://wwc.instacam.com/instacamimg/HVRDG/HVRDG_l.jpg'
+              },
+              {
+                label: 'Northwest of Seattle, WA',
+                src: 'https://icons.wunderground.com//webcamramdisk/c/a/CasaGuemes/2/current.jpg'
+              },
+              {
+                label: 'Surf City, NJ',
+                src: 'https://icons.wunderground.com//webcamramdisk/s/e/SeagullsByTheSea/1/current.jpg'
+              }
             ]
           }
         };
