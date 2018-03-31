@@ -1,6 +1,7 @@
 <link rel="import" href="../../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../../bower_components/paper-styles/color.html">
 <link rel="import" href="../../bower_components/iron-image/iron-image.html">
+<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
 <link rel="import" href="../../bower_components/skeleton-carousel/skeleton-carousel.html">
 
 <dom-module id="window-app">
@@ -42,6 +43,7 @@
         --iron-image-width: 100%;
       }
     </style>
+    <iron-ajax auto url="images.json" handle-as="json" last-response="{{images}}"></iron-ajax>
     <skeleton-carousel dots loop auto duration="6000">
       <template is="dom-repeat" items="[[images]]">
         <div class="slide">
@@ -68,20 +70,7 @@
         return {
           images: {
             type: Array,
-            value: [
-              {
-                label: 'Tidewater Marina, Havre de Grace, MD',
-                src: 'http://wwc.instacam.com/instacamimg/HVRDG/HVRDG_l.jpg'
-              },
-              {
-                label: 'Northwest of Seattle, WA',
-                src: 'https://icons.wunderground.com//webcamramdisk/c/a/CasaGuemes/2/current.jpg'
-              },
-              {
-                label: 'Surf City, NJ',
-                src: 'https://icons.wunderground.com//webcamramdisk/s/e/SeagullsByTheSea/1/current.jpg'
-              }
-            ]
+            value: []
           }
         };
       }
